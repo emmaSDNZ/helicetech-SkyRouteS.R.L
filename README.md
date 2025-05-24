@@ -2,94 +2,45 @@
 Software ERP 
 
 
---DOC 
+## Estructura del repositorio
 
-1: Clonar el repositorio
-Cada integrante del equipo debe clonar el repositorio remoto a su máquina local. Este procedimiento se realiza una única vez, al iniciar la colaboración en el proyecto.
+Este repositorio está organizado con una estructura clara y estandarizada para facilitar el desarrollo colaborativo, el mantenimiento del código y la comprensión general del proyecto.
 
--->     git clone https://github.com/emmaSDNZ/helicetech-SkyRouteS.R.L/
+A continuación se describen las carpetas y archivos principales que componen esta estructura:
 
-Una vez clonado el repositorio, se debe acceder al directorio del mismo:
+- **`src/`**  
+  Carpeta que contiene todo el código fuente del proyecto. Aquí se desarrollan los módulos, clases y funciones que conforman la aplicación principal.  
+  Ejemplo: archivos `.py`, `.js`, o cualquier lenguaje que se utilice.
 
--->     cd helicetech-SkyRouteS.R.L
+- **`tests/`**  
+  Carpeta destinada a las pruebas automatizadas (unitarias, de integración, funcionales, etc.). Aquí se guardan los scripts que verifican el correcto funcionamiento del código en `src/`.  
+  Esto facilita detectar errores y asegurar la calidad del software.
 
-2. Cambio a la rama de desarrollo (dev)
+- **`docs/`**  
+  Documentación técnica, guías, manuales y cualquier otro recurso que ayude a entender el proyecto. Puede incluir diagramas, flujos de trabajo, especificaciones y notas importantes.  
+  También puede incluir guías de instalación y uso.
 
-La rama principal para el desarrollo activo es dev. Es fundamental trabajar sobre esta base y <NO> realizar desarrollos directamente en main, que está reservada para versiones estables.
+- **`data/`**  
+  Contiene archivos de datos necesarios para la ejecución o pruebas del proyecto, como datos de ejemplo, archivos de configuración o datasets de entrenamiento.  
+  Esta carpeta es útil para separar el código de los datos que utiliza.
 
--->     git checkout dev
+- **`scripts/`**  
+  Scripts auxiliares para automatizar tareas comunes como la instalación del entorno, ejecución de pruebas, despliegue, entre otros.  
+  Estos scripts ayudan a estandarizar y simplificar el trabajo diario del equipo.
 
-Nota: Si la rama dev no se encuentra disponible localmente, primero debe traerse desde el repositorio remoto con:
+- **`.gitignore`**  
+  Archivo que indica a Git qué archivos o carpetas deben ser ignorados y no versionados (por ejemplo, archivos temporales, dependencias descargadas, configuraciones locales).
 
--->     git fetch origin
--->     git checkout dev
+- **`requirements.txt`**  
+  Archivo que lista las dependencias y librerías necesarias para que el proyecto funcione correctamente, utilizado para instalar paquetes con herramientas como `pip`.
 
-//ESTE ITEM NO APLICA PARA EL ABP PRIMERA INSTANCIA PRESENTACION DEL PROYECTO
-//SALTA DIRECTAMENTE AL 4
-3. Creación de ramas de trabajo
-Cada nueva funcionalidad o corrección debe desarrollarse en una rama independiente, derivada de dev. Esto facilita el control de cambios, revisión de código (Pull Requests), y evita conflictos con otros desarrolladores.
+- **`README.md`**  
+  Este archivo, que estás leyendo, contiene la descripción general del proyecto, instrucciones básicas para comenzar, y esta explicación sobre la estructura del repositorio.
 
-La convención de nombres sugerida es:
+---
 
-feature/nombre-de-la-funcionalidad para nuevas funcionalidades.
+Esta organización asegura que cada tipo de recurso esté claramente separado y facilita el trabajo en equipo, permitiendo que cada miembro se enfoque en su área sin confusión. Además, facilita la incorporación de nuevos colaboradores y el mantenimiento a largo plazo.
 
+---
 
-Ejemplos:
-git checkout -b feature/formulario-registro
-
-4. Confirmación de cambios (commits)
-Una vez realizados los cambios en los archivos del proyecto, se deben seguir los siguientes pasos para confirmarlos:
-
-4.1 Verificar los cambios realizados
-
--->     git status
-
-4.2 Agregar los archivos modificados 
-
--->     git add .
-
-4.3 Crear un commit con un mensaje descriptivo
-
--->     git commit -m "<debe ser descriptivo>"
-
-5. Envío de cambios al repositorio remoto (push)
-
-Una vez realizado el commit, se debe subir la rama al repositorio remoto:
-
--->     git push origin nombre-de-la-rama
-
-
-6. Creación de Pull Request
-Al finalizar el desarrollo, cada integrante debe generar un Pull Request (PR) desde GitHub. Esto permite revisar los cambios antes de integrarlos a la rama dev.
-
-Pasos:
-
-1)  Ingresar al repositorio en GitHub.
-
-2)  Verificar que la rama activa sea la que se desea integrar.
-
-3)  Hacer clic en “Compare & pull request”.
-
-4)  Asegurar que:
-
-        Base branch: dev
-
-        Compare: feature/mi-funcionalidad
-
-5)  Completar el título y descripción del PR.
-
-6)  Enviar para revisión.
-
-
-
-Resumen de comandos esenciales
-    Tarea	                    Comando
-Clonar repositorio	    git clone https://github.com/...
-Cambiar a rama dev	    git checkout dev
-Crear nueva rama	    git checkout -b feature/nombre
-Verificar estado	    git status
-Agregar cambios	        git add .
-Confirmar cambios	    git commit -m "mensaje"
-Subir rama	            git push origin nombre-de-la-rama
-Traer cambios del 
-repositorio remoto	    git pull origin dev (desde la rama dev)
+*Para cualquier duda sobre la estructura o el contenido de estas carpetas, por favor consultar con el responsable del proyecto o con el equipo de DevOps.*
