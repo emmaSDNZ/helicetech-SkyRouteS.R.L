@@ -1,5 +1,5 @@
 
-# Guía de  para integrande que constribuyen al Proyecto
+# Guía de  para integrantes que constribuyen al Proyecto
 
 Este documento describe el flujo de trabajo recomendado para colaborar eficientemente en el repositorio de **helicetech-SkyRouteS.R.L**. Seguir estos pasos asegura una integración de código fluida, facilita la revisión y minimiza conflictos entre los miembros del equipo.
 
