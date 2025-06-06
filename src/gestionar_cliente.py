@@ -1,6 +1,6 @@
 from conexion import conectar
 
-
+#menu de gestionar clientes
 def gestionar_cliente():
     print ("Usted selecciono la opcion 1)Gestionar Clientes.")
 #sub menu opcion 1
@@ -44,15 +44,16 @@ def gestionar_cliente():
             nueva_razon = input("Nueva razon social: ")
             nuevo_cuit = input("Nuevo cuit: ")
             nuevo_correo = input("Nuevo correo: ")
-            cursor.execute("UPDATE cliente SET razon_social=%s, cuit=%s, correo=%s WHERE id=%s",
+            cursor.execute("UPDATE cliente SET razon_social=%s, cuit=%s, correo=%s WHERE id_cliente=%s",
                            (nueva_razon, nuevo_cuit, nuevo_correo, id_cliente))
+            db.commit()
             print ("cliente modificado")
         elif opcion1=="4":
             print("Submenu Gestionar Cliente")
             print("Selecciono la opcion 4)Eleminar cliente: ")
             id_cliente=input("Ingrese el ID del cliente a eleminar: ")
-            cursor.execute("DELETE FROM cliente WHERE id=%s", (id_cliente))
-            db.commit
+            cursor.execute("DELETE FROM cliente WHERE id_cliente=%s", (id_cliente,))
+            db.commit()
             print ("cliente eleminado ")
 
         elif opcion1=="5":

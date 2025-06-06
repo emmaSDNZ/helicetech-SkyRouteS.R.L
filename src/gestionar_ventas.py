@@ -1,6 +1,6 @@
 from conexion import conectar
 from datetime import datetime, timedelta
-
+#menu gestionar ventas
 def gestionar_ventas():
     print ("Usted selecciono la opcion 3)Gestionar Ventas")
 #sub menu opcion 3
@@ -43,14 +43,18 @@ def boton_de_arrepentimiento():
     db=conectar()
     cursor= db.cursor()
     ahora=datetime.now()
-    hace_5_min= ahora- timedelta(minutes=-5)
-    cursor.execute("SELECT id_venta FROM anulacion WHERE estado='Activa' AND fecha >= %s", (hace_5_min))
+    hace_5_min= ahora- timedelta(minutes=5)
+    cursor.execute("SELECT id_venta FROM venta WHERE estado='Activa' AND fecha_venta >= %s", (hace_5_min,))
     venta = cursor.fetchone()
+    
 
     if venta:
         id_venta= venta[0]
-        cursor.execute("UPDATE venta SET estado='Anulada', fecha_anulacion=%s WHERE id_venta=%s",
+        cursor.execute("UPDATE venta SET estado='Anulada' WHERE id_venta=%s",
+                       (id_venta,))
+        cursor.execute("UPDATE anulacion SET fecha_anulacion=%s WHERE id_venta=%s",
                        (ahora,id_venta))
+        
         db.commit()
         print ("Venta Anulada")
     else:
