@@ -23,6 +23,7 @@ from gestionar_ventas import consultar_ventas
 from sistema import ver_reporte_general
 from sistema import acerca_del_sistema
 from sistema import salir
+from conexion import conectar
 
 def menu_principal():
     print("BIENVENIDOS A SkyRoute Sistema de Gestión de Pasajes")
