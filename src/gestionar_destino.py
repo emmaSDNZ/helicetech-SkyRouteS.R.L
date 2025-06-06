@@ -1,5 +1,9 @@
 from conexion import conectar
+<<<<<<< HEAD
 
+=======
+#menu gestionar destinos
+>>>>>>> dev
 def gestionar_destino():
     print ("Usted selecciono la opcion 2)Gestionar Destinos")
     while True:
@@ -16,7 +20,11 @@ def gestionar_destino():
         cursor= db.cursor()
 
         if opcion1=="1":
+<<<<<<< HEAD
             cursor.execute("SELEC * FROM destino")
+=======
+            cursor.execute("SELECT * FROM destino")
+>>>>>>> dev
             destino= cursor.fetchall()
             print("Submenu Gestionar Destinos")
             print("Selecciono la opcion 1)Ver Destinos")
@@ -53,7 +61,11 @@ def gestionar_destino():
             print("Submenu Gestionar Destinos")
             print("Selecciono la opcion 4)Eleminar Destinos: ")
             id_destino=input("ID destino a eleminar: ")
+<<<<<<< HEAD
             cursor.execute("DELETE FROM destino WHERE  id_destino=%s", (id_destino))
+=======
+            cursor.execute("DELETE FROM destino WHERE  id_destino=%s", (id_destino,))
+>>>>>>> dev
             db.commit()
             print("Destino Eleminado")
         
