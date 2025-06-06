@@ -36,10 +36,7 @@ def menu_principal():
     print("7) Acerca del sistema")
     print("8) Salir.")
         
-<<<<<<< HEAD
-=======
     
->>>>>>> dev
 def menu():
     while True:
         menu_principal()
