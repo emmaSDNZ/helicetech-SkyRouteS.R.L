@@ -11,8 +11,8 @@ SkyRoute es un sistema de gestión de pasajes diseñado para **pequeñas agencia
 ## Integrantes del Grupo
 
 * **[Baigorria Sol Milagros]** - GitHub: [@usuario1_github](https://github.com/usuario1_github)
-* **[Luciano Castillo ]** - GitHub: [@usuario2_github](https://github.com/usuario2_github)
-* **[Sudañez Isaías Emanuel]** - GitHub: [@usuario3_github](https://github.com/emmaSDNZ)
+* **[Luciano Castillo ]** - GitHub: [@(https://github.com/usuario2_github](https://github.com/usuario2_github)
+* **Sudañez Isaías Emanuel - GitHub: @emmaSDNZ
 * **[Luciana Goldraij]** - GitHub: [@usuario3_github](https://github.com/usuario3_github)
 
 
