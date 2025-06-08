@@ -1,69 +1,92 @@
-from conexion import conectar
-#menu gestionar destinos
+
+from sql_consultas import (
+    select_all_from, 
+    insert_into, 
+    update_table, 
+    select_where, 
+    delete_from)
+
+# Menu Gestionar Destinos
 def gestionar_destino():
-    print ("Usted selecciono la opcion 2)Gestionar Destinos")
+    print("Usted seleccionó la opción 2) Gestionar Destinos")
+
     while True:
-#sub menu opcion 2
-        print("Submenu Gestionar Destinos")
-        print("1)Ver Destinos")
-        print("2)Agregar Destinos")
-        print("3)Modificar Destinos")
-        print("4)Eliminar Destinos")
-        print("5)Volver a menu principal")
-        opcion1=input("Elija una opcion: ")
+        # Sub menú opción 2
+        menu = """
+            Submenu Gestionar Destinos
+            1) Ver Destinos
+            2) Agregar Destinos
+            3) Modificar Destinos
+            4) Eliminar Destino
+            ) Volver al menú principal"
+                """
+        print(menu)
+        opcion1 = input("Elija una opción: ")
 
-        db= conectar()
-        cursor= db.cursor()
-
-        if opcion1=="1":
-            cursor.execute("SELECT * FROM destino")
-            destino= cursor.fetchall()
+        if opcion1 == "1":
             print("Submenu Gestionar Destinos")
-            print("Selecciono la opcion 1)Ver Destinos")
-            print("El listado de Destinos es  ")
-            for d in destino:
+            print("Seleccionó la opción 1) Ver Destinos")
+            print("El listado de destinos es:")
+            destinos = select_all_from("destino")
+            for d in destinos:
                 print(f"{d[0]} - {d[1]}, {d[2]} (${d[3]})")
 
-        elif opcion1=="2":
+        elif opcion1 == "2":
             print("Submenu Gestionar Destinos")
-            print("Selecciono la opcion 2)Agregar Destinos")
-            print("Ingresar los siguientes datos para agregar Destinos ")
-            ciudad=input("Ciudad: ")
-            pais=input("Pais: ")
-            costo=float(input("Costo base: "))
-            cursor.execute("INSERT INTO destino (ciudad, pais, costo_base) VALUES (%s,%s,%s)",
-            (ciudad,pais,costo))
-            db.commit()
-            print("Destino Agregado")
+            print("Seleccionó la opción 2) Agregar Destinos")
+            print("Ingresar los siguientes datos para agregar destino")
+            ciudad = input("Ciudad: ")
+            pais = input("País: ")
+            costo = float(input("Costo base: "))
 
+            insert_into(
+                "destino",
+                ["ciudad", "pais", "costo_base"],
+                (ciudad, pais, costo)
+            )
+            print("Destino agregado correctamente.")
 
-        elif opcion1=="3":
+        elif opcion1 == "3":
             print("Submenu Gestionar Destinos")
-            print("Selecciono la opcion 3)Modificar Destinos: ")
-            id_destino=input("ID del destino a modificar: ")
-            ciudad=input("Nueva ciudad: ")
-            pais=input("Nuevo Pais: ")
-            costo=float(input("Nuevo Costo base: "))
-            cursor.execute("UPDATE destino SET ciudad=%s, pais=%s, costo_base=%s WHERE id_destino=%s",
-                           (ciudad,pais,costo,id_destino))
-            db.commit()
-            print ("Destino Modificado")
+            print("Seleccionó la opción 3) Modificar Destinos")
+            id_destino = input("ID del destino a modificar: ")
 
-        elif opcion1=="4":
+            # Validar si existe el destino antes de modificar
+            destino_existente = select_where("destino", "id_destino", id_destino)
+            if not destino_existente:
+                print(f"No existe destino con ID {id_destino}")
+            else:
+                ciudad = input("Nueva ciudad: ")
+                pais = input("Nuevo país: ")
+                costo = float(input("Nuevo costo base: "))
+
+                update_table(
+                    "destino",
+                    ["ciudad", "pais", "costo_base"],
+                    (ciudad, pais, costo),
+                    "id_destino",
+                    id_destino
+                )
+                print("Destino modificado correctamente.")
+
+        elif opcion1 == "4":
             print("Submenu Gestionar Destinos")
-            print("Selecciono la opcion 4)Eleminar Destinos: ")
-            id_destino=input("ID destino a eleminar: ")
-            cursor.execute("DELETE FROM destino WHERE  id_destino=%s", (id_destino,))
-            db.commit()
-            print("Destino Eleminado")
-        
-        elif opcion1=="5":
+            print("Seleccionó la opción 4) Eliminar Destinos")
+            id_destino = input("ID del destino a eliminar: ")
+
+            # Validar si existe el destino antes de eliminar
+            destino_existente = select_where("destino", "id_destino", id_destino)
+            if not destino_existente:
+                print(f"No existe destino con ID {id_destino}")
+            else:
+                delete_from("destino", "id_destino", id_destino)
+                print("Destino eliminado correctamente.")
+
+        elif opcion1 == "5":
             print("Submenu Gestionar Destinos")
-            print("Selecciono la opcion 5)Volver a menu principal")
-            print("VOLVIO AL MENU PRINCIPAL")
+            print("Seleccionó la opción 5) Volver al menú principal")
+            print("VOLVIÓ AL MENÚ PRINCIPAL")
             break
+
         else:
-            print("OPCION INVALIDA")
-        cursor.close()
-        db.close()
-        
+            print("OPCIÓN INVÁLIDA")
