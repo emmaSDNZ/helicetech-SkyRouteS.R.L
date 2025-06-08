@@ -10,10 +10,11 @@ SkyRoute es un sistema de gestión de pasajes diseñado para **pequeñas agencia
 
 ## Integrantes del Grupo
 
-* **[Nombre y Apellido del Integrante 1]** - GitHub: [@usuario1_github](https://github.com/usuario1_github)
-* **[Nombre y Apellido del Integrante 2]** - GitHub: [@usuario2_github](https://github.com/usuario2_github)
-* **[Nombre y Apellido del Integrante 3]** - GitHub: [@usuario3_github](https://github.com/usuario3_github)
-* *(Añade más integrantes si es necesario)*
+* **[Baigorria Sol Milagros]** - GitHub: [@usuario1_github](https://github.com/usuario1_github)
+* **[Luciano Castillo ]** - GitHub: [@usuario2_github](https://github.com/usuario2_github)
+* **[Sudañez Isaías Emanuel]** - GitHub: [@usuario3_github](https://github.com/emmaSDNZ)
+* **[Luciana Goldraij]** - GitHub: [@usuario3_github](https://github.com/usuario3_github)
+
 
 ---
 
@@ -23,7 +24,7 @@ Para poner en marcha el sistema SkyRoute, sigue los siguientes pasos:
 
 1.  **Clona el repositorio:**
     ```bash
-    git clone [https://github.com/tu-usuario/SkyRoute.git](https://github.com/tu-usuario/SkyRoute.git)
+    git clone [https://github.com/emmaSDNZ/helicetech-SkyRouteS.R.L]
     cd SkyRoute
     ```
 
