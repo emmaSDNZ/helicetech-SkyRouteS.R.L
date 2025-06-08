@@ -16,14 +16,20 @@
 # -Luciano Castillo- DNI:43062186
 # -Isaias Emanuel Sudañez- DNI:39231001
 
-
+from sql_ejecutar import sql_ejecutar
 from gestionar_cliente import gestionar_cliente
 from gestionar_destino import gestionar_destino
 from gestionar_ventas import gestionar_ventas
 from gestionar_arrepentimiento import boton_de_arrepentimiento
 from sistema import acerca_del_sistema
 from sistema import salir
+from conexion import conectar
 
+conexion = conectar()
+if conexion:
+    sql_ejecutar(conexion)
+else:
+    print("No se pudo conectar a la base de datos para ejecutar el script.")
 
 def menu_principal():
     print("BIENVENIDOS A SkyRoute Sistema de Gestión de Pasajes")

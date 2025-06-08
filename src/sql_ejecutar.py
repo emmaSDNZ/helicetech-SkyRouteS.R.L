@@ -1,5 +1,10 @@
+import os
+
 def sql_ejecutar(conexion):
-    ruta_sql = '../data/helice_bd.sql'  # ruta relativa sin usar os
+    # Obtengo el directorio donde está este archivo
+    dir_actual = os.path.dirname(os.path.abspath(__file__))
+    ruta_sql = os.path.join(dir_actual, '..', 'data', 'helice_bd.sql')
+
     with open(ruta_sql, 'r', encoding='utf-8') as f:
         script = f.read()
 
