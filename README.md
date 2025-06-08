@@ -13,7 +13,7 @@ El sistema también incorpora un práctico **"botón de arrepentimiento"**, que 
 
 * **Baigorria Sol Milagros** — GitHub: [@usuario1_github](https://github.com/usuario1_github)  
 * **Luciano Castillo** — GitHub: [@usuario2_github](https://github.com/usuario2_github)  
-* **Isaias Emanuel Sudañez** — GitHub: [@emmaSDNZ](https://github.com/emmaSDNZ)  
+* **Isaias Emanuel Sudañez DNI: 39231001** — GitHub: [@emmaSDNZ](https://github.com/emmaSDNZ)  
 * **Luciana Goldraij** — GitHub: [@lugoldraij](https://github.com/lugoldraij)  
 
 ---
