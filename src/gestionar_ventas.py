@@ -5,6 +5,44 @@ from sql_consultas import select_all_from, insert_into, select_where
 from datetime import datetime
 
 def gestionar_ventas():
+    """
+    Función interactiva para gestionar ventas desde un menú por consola.
+
+    Descripción:
+    ------------
+    Permite al usuario registrar nuevas ventas asociadas a clientes y usuarios,
+    visualizar el listado de ventas registradas, o volver al menú principal.
+    Utiliza funciones SQL para consultar y modificar la base de datos.
+
+    Operaciones:
+    ------------
+    1) Registrar una venta:
+       - Muestra lista de clientes y usuarios disponibles.
+       - Solicita IDs para cliente y usuario.
+       - Valida que existan en la base.
+       - Registra la venta con la fecha actual y estado 'Activa'.
+
+    2) Ver ventas registradas:
+       - Muestra listado completo de ventas con sus datos principales.
+
+    3) Volver al menú principal:
+       - Sale del submenú.
+
+    Parámetros:
+    -----------
+    No recibe parámetros.
+
+    Retorna:
+    --------
+    None
+
+    Flujo:
+    ------
+    - Muestra el submenú y pide opción al usuario.
+    - Ejecuta la operación según la opción.
+    - Valida la existencia de cliente y usuario al registrar ventas.
+    - Permite salir del submenú con la opción 3.
+    """
     print("Usted seleccionó la opción 3) Gestionar Ventas")
 
     while True:

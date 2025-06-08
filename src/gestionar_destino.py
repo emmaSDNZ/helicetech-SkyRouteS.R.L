@@ -8,6 +8,39 @@ from sql_consultas import (
 
 # Menu Gestionar Destinos
 def gestionar_destino():
+    """
+    Función interactiva para gestionar destinos turísticos desde un menú por consola.
+
+    Descripción:
+    ------------
+    Permite al usuario realizar operaciones básicas sobre la tabla 'destino',
+    incluyendo ver, agregar, modificar y eliminar destinos.
+    Presenta un submenú con opciones que se repite hasta que el usuario decide salir.
+
+    Operaciones:
+    ------------
+    1) Ver Destinos: Muestra la lista completa de destinos registrados.
+    2) Agregar Destino: Solicita datos para agregar un nuevo destino turístico.
+    3) Modificar Destino: Permite modificar los datos de un destino existente, identificado por su ID.
+    4) Eliminar Destino: Elimina un destino existente según su ID.
+    5) Volver al menú principal: Sale del submenú y retorna al menú principal.
+
+    Parámetros:
+    -----------
+    No recibe parámetros.
+
+    Retorna:
+    --------
+    None
+
+    Flujo:
+    ------
+    - Muestra el submenú y solicita una opción al usuario.
+    - Según la opción elegida, ejecuta operaciones CRUD sobre la tabla 'destino' usando funciones SQL.
+    - Valida existencia del destino antes de modificar o eliminar.
+    - Repite el menú hasta que el usuario selecciona salir (opción 5).
+    """
+    
     print("Usted seleccionó la opción 2) Gestionar Destinos")
 
     while True:

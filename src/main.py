@@ -32,6 +32,11 @@ else:
     print("No se pudo conectar a la base de datos para ejecutar el script.")
 
 def menu_principal():
+    """
+    Muestra el menú principal del sistema SkyRoute para gestionar
+    clientes, destinos, ventas, botón de arrepentimiento, información
+    del sistema y salida del programa.
+    """
     print("BIENVENIDOS A SkyRoute Sistema de Gestión de Pasajes")
     print("1) Gestionar Clientes")
     print("2) Gestionar Destinos")
@@ -42,6 +47,27 @@ def menu_principal():
         
     
 def menu():
+    """
+    Bucle principal que despliega el menú y ejecuta la opción elegida
+    por el usuario hasta que se seleccione salir.
+
+    Operaciones según opción:
+    -------------------------
+    1) gestionar_cliente(): gestiona clientes.
+    2) gestionar_destino(): gestiona destinos.
+    3) gestionar_ventas(): gestiona ventas.
+    4) boton_de_arrepentimiento(): ejecuta funcionalidad de arrepentimiento.
+    5) acerca_del_sistema(): muestra información del sistema.
+    6) salir(): termina el programa.
+
+    Entrada:
+    --------
+    - Solicita al usuario ingresar una opción por consola.
+
+    Salida:
+    -------
+    - Ejecuta la función correspondiente o indica opción inválida.
+    """
     while True:
         menu_principal()
         opcion=input("Por favor elija una opcion: ")
