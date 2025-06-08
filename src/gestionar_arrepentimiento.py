@@ -4,6 +4,35 @@ from sql_consultas import (
     anular_venta)
 
 def boton_de_arrepentimiento():
+    """
+    Permite anular ventas activas realizadas en los últimos 5 minutos mediante una interacción por consola.
+
+    Descripción:
+    ------------
+    Esta función simula un "botón de arrepentimiento" para que el usuario pueda anular
+    una venta activa reciente, es decir, realizada en los últimos 5 minutos.
+    Muestra las ventas activas recientes, solicita al usuario que ingrese el ID de la venta a anular,
+    valida la entrada y realiza la anulación si el ID es correcto.
+
+    Parámetros:
+    -----------
+    No recibe parámetros.
+
+    Retorna:
+    --------
+    None
+
+    Flujo:
+    ------
+    1. Calcula la fecha y hora actuales y la fecha/hora de hace 5 minutos.
+    2. Obtiene las ventas activas desde hace 5 minutos usando `obtener_ventas_activas_recientes`.
+    3. Si no hay ventas activas recientes, informa y termina la función.
+    4. Si hay ventas, las muestra en pantalla con ID, cliente, usuario y fecha.
+    5. Solicita al usuario el ID de la venta a anular (o 0 para cancelar).
+    6. Valida que el ID sea numérico y corresponda a una venta activa reciente.
+    7. Si es válido, llama a `anular_venta` con el ID y fecha actual, e informa resultado.
+    8. Si es inválido, solicita reingreso hasta que el usuario cancele o ingrese un ID válido.
+    """
     menu= """
         Usted seleccionó la opción 4) Botón de Arrepentimiento
     """

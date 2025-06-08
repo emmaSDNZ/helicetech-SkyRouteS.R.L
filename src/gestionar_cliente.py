@@ -7,8 +7,42 @@ from sql_consultas import (
 )
 #menu de gestionar clientes
 def gestionar_cliente():
+    """
+    Función interactiva para gestionar clientes desde un menú por consola.
+
+    Descripción:
+    ------------
+    Permite al usuario realizar operaciones básicas de gestión sobre la tabla 'cliente',
+    incluyendo ver, agregar, modificar y eliminar clientes.
+    Presenta un submenú con opciones que se repite hasta que el usuario elige salir.
+
+    Operaciones:
+    ------------
+    1) Ver Cliente: Muestra una lista con todos los clientes registrados.
+    2) Agregar Cliente: Solicita datos para agregar un nuevo cliente a la base.
+    3) Modificar Cliente: Permite modificar los datos de un cliente existente, identificado por su ID.
+    4) Eliminar Cliente: Elimina un cliente existente por su ID.
+    5) Volver a menú principal: Sale del submenú y retorna al menú principal.
+
+    Parámetros:
+    -----------
+    No recibe parámetros.
+
+    Retorna:
+    --------
+    None
+
+    Flujo:
+    ------
+    - Muestra el submenú y pide una opción.
+    - Según la opción:
+        - Llama a funciones SQL para obtener, insertar, actualizar o eliminar datos en la tabla 'cliente'.
+        - Maneja validaciones simples para verificar existencia del cliente antes de modificar o eliminar.
+    - El menú se repite hasta que el usuario elige salir (opción 5).
+    """
+    
     print ("Usted selecciono la opcion 1)Gestionar Clientes.")
-#sub menu opcion 1
+
     while True:
         menu = """
         Submenu Gestionar Cliente
