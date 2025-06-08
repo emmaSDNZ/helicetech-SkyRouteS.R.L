@@ -11,7 +11,7 @@ El sistema también incorpora un práctico **"botón de arrepentimiento"**, que 
 
 ## Integrantes del Grupo
 
-* **Baigorria Sol Milagros** — GitHub: [@usuario1_github](https://github.com/usuario1_github)  
+* **Baigorria Sol Milagros** — GitHub: [@Solbaigorria3](https://github.com/Solbaigorria3)   
 * **Luciano Castillo** — GitHub: [@usuario2_github](https://github.com/usuario2_github)  
 * **Isaias Emanuel Sudañez DNI: 39231001** — GitHub: [@emmaSDNZ](https://github.com/emmaSDNZ)  
 * **Luciana Goldraij DNI: 49262403** — GitHub: [@lugoldraij](https://github.com/lugoldraij)  
