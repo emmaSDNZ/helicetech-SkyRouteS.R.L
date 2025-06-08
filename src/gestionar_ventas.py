@@ -1,64 +1,73 @@
-from conexion import conectar
 from datetime import datetime, timedelta
 #menu gestionar ventas
+from conexion import conectar
+from sql_consultas import select_all_from, insert_into, select_where
+from datetime import datetime
+
 def gestionar_ventas():
-    print ("Usted selecciono la opcion 3)Gestionar Ventas")
-#sub menu opcion 3
+    print("Usted seleccionó la opción 3) Gestionar Ventas")
+
     while True:
-        print("1)Registrar una venta")
-        print("2)Volver al Menu Principal ")
-        opcion1=input("elija una opcion: ")
+        menu = """
+        Submenu Gestionar Ventas
+        1) Registrar una venta
+        2) Ver ventas registradas
+        3) Volver al menú principal
+        """
+        print(menu)
+        opcion1 = input("Elija una opción: ")
 
-        db=conectar()
-        cursor=db.cursor()
-
-
-        if opcion1=="1":
+        if opcion1 == "1":
             print("Submenu Gestionar Ventas")
-            print("Selecciono la opcion 1)Registrar una venta")
-            cliente_id= input ("ID Cliente: ")
-            usuario_id=input ("ID usuario: ")
-            fecha= datetime.now()
-            cursor.execute(
-                "INSERT INTO venta (id_cliente, id_usuario, fecha_venta, estado) VALUES (%s,%s,%s,%s)",
-                (cliente_id,usuario_id,fecha,"Activa"))
-            db.commit()
-            print("Venta Registrada")
+            print("Seleccionó la opción 1) Registrar una venta")
 
-        elif opcion1=="2":
+            # Ver lista de clientes
+            print("Listado de clientes disponibles:")
+            clientes = select_all_from("cliente")
+            for c in clientes:
+                print(f"ID: {c[0]}, Nombre: {c[1]}, Apellido: {c[2]}")
+
+            cliente_id = input("Ingrese el ID del cliente: ")
+            cliente_existente = select_where("cliente", "id_cliente", cliente_id)
+            if not cliente_existente:
+                print(f"No existe cliente con ID {cliente_id}")
+                continue
+
+            # Ver lista de usuarios
+            print("Listado de usuarios disponibles:")
+            usuarios = select_all_from("usuario")
+            for u in usuarios:
+                print(f"ID: {u[0]}, Nombre de usuario: {u[1]}")
+
+            usuario_id = input("Ingrese el ID del usuario: ")
+            usuario_existente = select_where("usuario", "id_usuario", usuario_id)
+            if not usuario_existente:
+                print(f"No existe usuario con ID {usuario_id}")
+                continue
+
+            # Registrar la venta
+            fecha = datetime.now()
+            insert_into(
+                "venta",
+                ["id_cliente", "id_usuario", "fecha_venta", "estado"],
+                (cliente_id, usuario_id, fecha, "Activa")
+            )
+            print("Venta registrada correctamente.")
+
+        elif opcion1 == "2":
             print("Submenu Gestionar Ventas")
-            print("Selecciono la opcion 2)Volver a menu principal")
-            print("VOLVIO AL MENU PRINCIPAL")
+            print("Seleccionó la opción 2) Ver ventas registradas")
+            ventas = select_all_from("venta")
+            print("Listado de ventas:")
+            for v in ventas:
+                print(f"ID Venta: {v[0]}, Cliente ID: {v[1]}, Usuario ID: {v[2]}, Fecha: {v[3]}, Estado: {v[4]}")
+
+        elif opcion1 == "3":
+            print("Submenu Gestionar Ventas")
+            print("Seleccionó la opción 3) Volver al menú principal")
+            print("VOLVIÓ AL MENÚ PRINCIPAL")
             break
+
         else:
-            print("OPCION INVALIDA")
+            print("OPCIÓN INVÁLIDA")
 
-def consultar_ventas():
-    print ("Usted selecciono la opcion 4) Consultar Ventas")
-    print("funcion en proceso: ")
-    print("se mostraron Ventas")
-
-def boton_de_arrepentimiento():
-    print ("Usted selecciono la opcion 5) Boton de Arrepentimiento")
-    db=conectar()
-    cursor= db.cursor()
-    ahora=datetime.now()
-    hace_5_min= ahora- timedelta(minutes=5)
-    cursor.execute("SELECT id_venta FROM venta WHERE estado='Activa' AND fecha_venta >= %s", (hace_5_min,))
-    venta = cursor.fetchone()
-    
-
-    if venta:
-        id_venta= venta[0]
-        cursor.execute("UPDATE venta SET estado='Anulada' WHERE id_venta=%s",
-                       (id_venta,))
-        cursor.execute("UPDATE anulacion SET fecha_anulacion=%s WHERE id_venta=%s",
-                       (ahora,id_venta))
-        
-        db.commit()
-        print ("Venta Anulada")
-    else:
-        print("No hay ventas recientes")
-    cursor.close()
-    db.close()
-    

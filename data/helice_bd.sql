@@ -2,13 +2,17 @@
 -- -----------------------------------------------------
 -- Base de Datos: Hélice - Sistema de gestión de pasajes aéreos
 -- -----------------------------------------------------
-CREATE DATABASE IF NOT EXISTS helice;
+-- *** PARA ENTORNO DE PRUEBAS ***
+-- Elimina la base existente y la recrea limpia:
+DROP DATABASE IF EXISTS helice;
+CREATE DATABASE helice;
 USE helice;
+
 
 -- -----------------------------------------------------
 -- Tabla: Cliente
 -- -----------------------------------------------------
-CREATE TABLE Cliente (
+CREATE TABLE IF NOT EXISTS Cliente (
     id_cliente INT AUTO_INCREMENT PRIMARY KEY,
     razon_social VARCHAR(100),
     cuit VARCHAR(20) UNIQUE,
@@ -18,7 +22,7 @@ CREATE TABLE Cliente (
 -- -----------------------------------------------------
 -- Tabla: Usuario
 -- -----------------------------------------------------
-CREATE TABLE Usuario (
+CREATE TABLE IF NOT EXISTS Usuario (
     id_usuario INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100),
     correo VARCHAR(100),
@@ -28,7 +32,7 @@ CREATE TABLE Usuario (
 -- -----------------------------------------------------
 -- Tabla: Destino
 -- -----------------------------------------------------
-CREATE TABLE Destino (
+CREATE TABLE IF NOT EXISTS Destino (
     id_destino INT AUTO_INCREMENT PRIMARY KEY,
     ciudad VARCHAR(100),
     pais VARCHAR(100),
@@ -38,7 +42,7 @@ CREATE TABLE Destino (
 -- -----------------------------------------------------
 -- Tabla: Venta
 -- -----------------------------------------------------
-CREATE TABLE Venta (
+CREATE TABLE IF NOT EXISTS Venta (
     id_venta INT AUTO_INCREMENT PRIMARY KEY,
     id_cliente INT,
     id_usuario INT,
@@ -51,7 +55,7 @@ CREATE TABLE Venta (
 -- -----------------------------------------------------
 -- Tabla: Pasaje
 -- -----------------------------------------------------
-CREATE TABLE Pasaje (
+CREATE TABLE IF NOT EXISTS Pasaje (
     id_pasaje INT AUTO_INCREMENT PRIMARY KEY,
     id_venta INT,
     id_destino INT,
@@ -64,7 +68,7 @@ CREATE TABLE Pasaje (
 -- -----------------------------------------------------
 -- Tabla: Anulacion
 -- -----------------------------------------------------
-CREATE TABLE Anulacion (
+CREATE TABLE IF NOT EXISTS Anulacion (
     id_anulacion INT AUTO_INCREMENT PRIMARY KEY,
     id_venta INT UNIQUE,
     fecha_anulacion DATETIME,
